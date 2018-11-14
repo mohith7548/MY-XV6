@@ -39,7 +39,7 @@ main(int argc, char *argv[])
   2a:	e8 f3 02 00 00       	call   322 <exit>
   }
 
-    if((fd0 = open(argv[1], O_RDONLY)) < 0){
+  if((fd0 = open(argv[1], O_RDONLY)) < 0){
   2f:	53                   	push   %ebx
   30:	53                   	push   %ebx
   31:	6a 00                	push   $0x0
@@ -49,10 +49,10 @@ main(int argc, char *argv[])
   3e:	85 c0                	test   %eax,%eax
   40:	89 c3                	mov    %eax,%ebx
   42:	78 5e                	js     a2 <main+0xa2>
-      printf(1, "cp: cannot open %s\n", argv[1]);
-      exit();
-    }
-    if((fd1 = open(argv[2], O_CREATE|O_RDWR)) < 0){
+    printf(1, "cp: cannot open %s\n", argv[1]);
+    exit();
+  }
+  if((fd1 = open(argv[2], O_CREATE|O_RDWR)) < 0){
   44:	52                   	push   %edx
   45:	52                   	push   %edx
   46:	68 02 02 00 00       	push   $0x202
@@ -64,18 +64,18 @@ main(int argc, char *argv[])
   5a:	79 16                	jns    72 <main+0x72>
   5c:	eb 59                	jmp    b7 <main+0xb7>
   5e:	66 90                	xchg   %ax,%ax
-      printf(1, "cp: cannot open %s\n", argv[2]);
-      exit();
-    }
-    while ((n = read(fd0, buf, sizeof(buf))) > 0) {
-      write(fd1, buf, n);
+    printf(1, "cp: cannot open %s\n", argv[2]);
+    exit();
+  }
+  while ((n = read(fd0, buf, sizeof(buf))) > 0) {
+    write(fd1, buf, n);
   60:	83 ec 04             	sub    $0x4,%esp
   63:	50                   	push   %eax
   64:	68 e0 0a 00 00       	push   $0xae0
   69:	56                   	push   %esi
   6a:	e8 d3 02 00 00       	call   342 <write>
   6f:	83 c4 10             	add    $0x10,%esp
-    while ((n = read(fd0, buf, sizeof(buf))) > 0) {
+  while ((n = read(fd0, buf, sizeof(buf))) > 0) {
   72:	83 ec 04             	sub    $0x4,%esp
   75:	68 00 02 00 00       	push   $0x200
   7a:	68 e0 0a 00 00       	push   $0xae0
@@ -84,31 +84,31 @@ main(int argc, char *argv[])
   85:	83 c4 10             	add    $0x10,%esp
   88:	85 c0                	test   %eax,%eax
   8a:	7f d4                	jg     60 <main+0x60>
-    }
-    close(fd0);
+  }
+  close(fd0);
   8c:	83 ec 0c             	sub    $0xc,%esp
   8f:	53                   	push   %ebx
   90:	e8 b5 02 00 00       	call   34a <close>
-    close(fd1);
+  close(fd1);
   95:	89 34 24             	mov    %esi,(%esp)
   98:	e8 ad 02 00 00       	call   34a <close>
   exit();
   9d:	e8 80 02 00 00       	call   322 <exit>
-      printf(1, "cp: cannot open %s\n", argv[1]);
+    printf(1, "cp: cannot open %s\n", argv[1]);
   a2:	51                   	push   %ecx
   a3:	ff 77 04             	pushl  0x4(%edi)
   a6:	68 eb 07 00 00       	push   $0x7eb
   ab:	6a 01                	push   $0x1
   ad:	e8 ce 03 00 00       	call   480 <printf>
-      exit();
+    exit();
   b2:	e8 6b 02 00 00       	call   322 <exit>
-      printf(1, "cp: cannot open %s\n", argv[2]);
+    printf(1, "cp: cannot open %s\n", argv[2]);
   b7:	50                   	push   %eax
   b8:	ff 77 08             	pushl  0x8(%edi)
   bb:	68 eb 07 00 00       	push   $0x7eb
   c0:	6a 01                	push   $0x1
   c2:	e8 b9 03 00 00       	call   480 <printf>
-      exit();
+    exit();
   c7:	e8 56 02 00 00       	call   322 <exit>
   cc:	66 90                	xchg   %ax,%ax
   ce:	66 90                	xchg   %ax,%ax
@@ -642,10 +642,12 @@ SYSCALL(shutdown)
  3ca:	b8 17 00 00 00       	mov    $0x17,%eax
  3cf:	cd 40                	int    $0x40
  3d1:	c3                   	ret    
- 3d2:	66 90                	xchg   %ax,%ax
- 3d4:	66 90                	xchg   %ax,%ax
- 3d6:	66 90                	xchg   %ax,%ax
- 3d8:	66 90                	xchg   %ax,%ax
+
+000003d2 <chpr>:
+SYSCALL(chpr)
+ 3d2:	b8 18 00 00 00       	mov    $0x18,%eax
+ 3d7:	cd 40                	int    $0x40
+ 3d9:	c3                   	ret    
  3da:	66 90                	xchg   %ax,%ax
  3dc:	66 90                	xchg   %ax,%ax
  3de:	66 90                	xchg   %ax,%ax

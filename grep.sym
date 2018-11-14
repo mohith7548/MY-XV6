@@ -14,7 +14,7 @@
 00000000 ulib.c
 00000000 printf.c
 00000640 printint
-00000a78 digits.1042
+00000a78 digits.1045
 00000000 umalloc.c
 00000e20 freep
 00000e24 base
@@ -48,6 +48,7 @@
 0000062a shutdown
 000005fa dup
 00000e40 buf
+00000632 chpr
 000004c0 stat
 00000e10 _edata
 00001240 _end

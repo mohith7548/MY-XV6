@@ -12,11 +12,11 @@
 00000000 .debug_loc
 00000000 .debug_ranges
 00000000 usertests.c
-00005e20 args.1406
+00005e20 args.1409
 00000000 ulib.c
 00000000 printf.c
 00003960 printint
-000054f8 digits.1042
+000054f8 digits.1045
 00000000 umalloc.c
 00005ea0 freep
 00005ea4 base
@@ -82,6 +82,7 @@
 000085e0 buf
 000008e0 dirtest
 00000120 iputtest
+00003952 chpr
 000037e0 stat
 000024d0 bigfile
 00005e20 _edata

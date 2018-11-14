@@ -186,6 +186,8 @@ UPROGS=\
 	_myprogram\
 	_clear\
 	_shutdown\
+	_nice\
+	_touch\
 	_ps\
 
 fs.img: mkfs README $(UPROGS)
@@ -256,7 +258,7 @@ qemu-nox-gdb: fs.img xv6.img .gdbinit
 EXTRA=\
 	mkfs.c ulib.c user.h cat.c echo.c forktest.c grep.c kill.c\
 	ln.c ls.c mkdir.c rm.c stressfs.c usertests.c wc.c cp.c ps.c foo.c clear.c\
-	myprogram.c zombie.c shutdown.c\
+	myprogram.c zombie.c shutdown.c nice.c touch.c\
 	printf.c umalloc.c\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
