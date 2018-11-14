@@ -184,6 +184,7 @@ UPROGS=\
 	_zombie\
 	_myprogram\
 	_clear\
+	_shutdown\
 	_ps\
 
 fs.img: mkfs README $(UPROGS)
@@ -223,7 +224,7 @@ QEMUGDB = $(shell if $(QEMU) -help | grep -q '^-gdb'; \
 ifndef CPUS
 CPUS := 2
 endif
-QEMUOPTS = -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp $(CPUS) -m 512 $(QEMUEXTRA)
+QEMUOPTS = -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp $(CPUS) -m 512 $(QEMUEXTRA) -device isa-debug-exit,iobase=0xf4,iosize=0x04
 
 qemu: fs.img xv6.img
 	$(QEMU) -serial mon:stdio $(QEMUOPTS)
@@ -253,7 +254,8 @@ qemu-nox-gdb: fs.img xv6.img .gdbinit
 
 EXTRA=\
 	mkfs.c ulib.c user.h cat.c echo.c forktest.c grep.c kill.c\
-	ln.c ls.c mkdir.c rm.c stressfs.c usertests.c wc.c cp.c ps.c clear.c myprogram.c zombie.c\
+	ln.c ls.c mkdir.c rm.c stressfs.c usertests.c wc.c cp.c ps.c clear.c\
+	myprogram.c zombie.c shutdown.c\
 	printf.c umalloc.c\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\

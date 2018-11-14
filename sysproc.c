@@ -20,6 +20,15 @@ sys_fork(void)
 }
 
 int
+sys_shutdown(void)
+{
+  cprintf("Shutting signal sent\n");
+  // outw( 0xB004, 0x0 | 0x2000 );
+  outb(0xf4, 0x00);
+  return 0;
+}
+
+int
 sys_exit(void)
 {
   exit();
