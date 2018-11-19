@@ -43,40 +43,40 @@ main(void)
 
   // Add Banner saying "Xv6 2.0"
   // clear();
-  printf(1, "__  ____     ____     ____    ___  \n");
+  printf(1, "                       __  ____     ____     ____    ___  \n");
   3f:	58                   	pop    %eax
   40:	5a                   	pop    %edx
   41:	68 98 08 00 00       	push   $0x898
   46:	6a 01                	push   $0x1
   48:	e8 a3 04 00 00       	call   4f0 <printf>
-  printf(1, "\\ \\/ /\\ \\   / / /_   |___ \\  / _ \\ \n");
+  printf(1, "                       \\ \\/ /\\ \\   / / /_   |___ \\  / _ \\ \n");
   4d:	59                   	pop    %ecx
   4e:	5b                   	pop    %ebx
-  4f:	68 c0 08 00 00       	push   $0x8c0
+  4f:	68 d4 08 00 00       	push   $0x8d4
   54:	6a 01                	push   $0x1
   56:	e8 95 04 00 00       	call   4f0 <printf>
-  printf(1, " \\  /  \\ \\ / / '_ \\    __) || | | |\n");
+  printf(1, "                        \\  /  \\ \\ / / '_ \\    __) || | | |\n");
   5b:	58                   	pop    %eax
   5c:	5a                   	pop    %edx
-  5d:	68 e8 08 00 00       	push   $0x8e8
+  5d:	68 10 09 00 00       	push   $0x910
   62:	6a 01                	push   $0x1
   64:	e8 87 04 00 00       	call   4f0 <printf>
-  printf(1, " /  \\   \\ V /| (_) |  / __/ | |_| |\n");
+  printf(1, "                        /  \\   \\ V /| (_) |  / __/ | |_| |\n");
   69:	59                   	pop    %ecx
   6a:	5b                   	pop    %ebx
-  6b:	68 10 09 00 00       	push   $0x910
+  6b:	68 4c 09 00 00       	push   $0x94c
   70:	6a 01                	push   $0x1
   72:	e8 79 04 00 00       	call   4f0 <printf>
-  printf(1, "/_/\\_\\   \\_/  \\___/  |_____(_)___/ \n");
+  printf(1, "                       /_/\\_\\   \\_/  \\___/  |_____(_)___/ \n");
   77:	58                   	pop    %eax
   78:	5a                   	pop    %edx
-  79:	68 38 09 00 00       	push   $0x938
+  79:	68 88 09 00 00       	push   $0x988
   7e:	6a 01                	push   $0x1
   80:	e8 6b 04 00 00       	call   4f0 <printf>
-  printf(1, "                                   \n");
+  printf(1, "                                                          \n");
   85:	59                   	pop    %ecx
   86:	5b                   	pop    %ebx
-  87:	68 60 09 00 00       	push   $0x960
+  87:	68 c4 09 00 00       	push   $0x9c4
   8c:	6a 01                	push   $0x1
   8e:	e8 5d 04 00 00       	call   4f0 <printf>
   93:	83 c4 10             	add    $0x10,%esp
@@ -132,7 +132,7 @@ main(void)
       exec("sh", argv);
   f4:	50                   	push   %eax
   f5:	50                   	push   %eax
-  f6:	68 38 0c 00 00       	push   $0xc38
+  f6:	68 b0 0c 00 00       	push   $0xcb0
   fb:	68 76 08 00 00       	push   $0x876
  100:	e8 c5 02 00 00       	call   3ca <exec>
       printf(1, "init: exec sh failed\n");
@@ -748,7 +748,7 @@ printint(int fd, int xx, int base, int sgn)
  482:	31 d2                	xor    %edx,%edx
  484:	8d 7e 01             	lea    0x1(%esi),%edi
  487:	f7 f1                	div    %ecx
- 489:	0f b6 92 90 09 00 00 	movzbl 0x990(%edx),%edx
+ 489:	0f b6 92 08 0a 00 00 	movzbl 0xa08(%edx),%edx
   }while((x /= base) != 0);
  490:	85 c0                	test   %eax,%eax
     buf[i++] = digits[x % base];
@@ -1039,7 +1039,7 @@ printf(int fd, const char *fmt, ...)
  6a2:	31 ff                	xor    %edi,%edi
  6a4:	e9 8f fe ff ff       	jmp    538 <printf+0x48>
           s = "(null)";
- 6a9:	bb 88 09 00 00       	mov    $0x988,%ebx
+ 6a9:	bb 00 0a 00 00       	mov    $0xa00,%ebx
         while(*s != 0){
  6ae:	b8 28 00 00 00       	mov    $0x28,%eax
  6b3:	e9 72 ff ff ff       	jmp    62a <printf+0x13a>
@@ -1060,7 +1060,7 @@ free(void *ap)
 
   bp = (Header*)ap - 1;
   for(p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
- 6c1:	a1 40 0c 00 00       	mov    0xc40,%eax
+ 6c1:	a1 b8 0c 00 00       	mov    0xcb8,%eax
 {
  6c6:	89 e5                	mov    %esp,%ebp
  6c8:	57                   	push   %edi
@@ -1101,7 +1101,7 @@ free(void *ap)
     p->s.ptr = bp;
  6fd:	89 08                	mov    %ecx,(%eax)
   freep = p;
- 6ff:	a3 40 0c 00 00       	mov    %eax,0xc40
+ 6ff:	a3 b8 0c 00 00       	mov    %eax,0xcb8
 }
  704:	5b                   	pop    %ebx
  705:	5e                   	pop    %esi
@@ -1133,7 +1133,7 @@ free(void *ap)
     p->s.size += bp->s.size;
  737:	03 53 fc             	add    -0x4(%ebx),%edx
   freep = p;
- 73a:	a3 40 0c 00 00       	mov    %eax,0xc40
+ 73a:	a3 b8 0c 00 00       	mov    %eax,0xcb8
     p->s.size += bp->s.size;
  73f:	89 50 04             	mov    %edx,0x4(%eax)
     p->s.ptr = bp->s.ptr;
@@ -1166,7 +1166,7 @@ malloc(uint nbytes)
   nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
  759:	8b 45 08             	mov    0x8(%ebp),%eax
   if((prevp = freep) == 0){
- 75c:	8b 15 40 0c 00 00    	mov    0xc40,%edx
+ 75c:	8b 15 b8 0c 00 00    	mov    0xcb8,%edx
   nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
  762:	8d 78 07             	lea    0x7(%eax),%edi
  765:	c1 ef 03             	shr    $0x3,%edi
@@ -1203,7 +1203,7 @@ malloc(uint nbytes)
       return (void*)(p + 1);
     }
     if(p == freep)
- 7a1:	39 05 40 0c 00 00    	cmp    %eax,0xc40
+ 7a1:	39 05 b8 0c 00 00    	cmp    %eax,0xcb8
  7a7:	89 c2                	mov    %eax,%edx
  7a9:	75 ed                	jne    798 <malloc+0x48>
   p = sbrk(nu * sizeof(Header));
@@ -1222,7 +1222,7 @@ malloc(uint nbytes)
  7c5:	50                   	push   %eax
  7c6:	e8 f5 fe ff ff       	call   6c0 <free>
   return freep;
- 7cb:	8b 15 40 0c 00 00    	mov    0xc40,%edx
+ 7cb:	8b 15 b8 0c 00 00    	mov    0xcb8,%edx
       if((p = morecore(nunits)) == 0)
  7d1:	83 c4 10             	add    $0x10,%esp
  7d4:	85 d2                	test   %edx,%edx
@@ -1251,7 +1251,7 @@ malloc(uint nbytes)
         p->s.size = nunits;
  7f4:	89 78 04             	mov    %edi,0x4(%eax)
       freep = prevp;
- 7f7:	89 15 40 0c 00 00    	mov    %edx,0xc40
+ 7f7:	89 15 b8 0c 00 00    	mov    %edx,0xcb8
 }
  7fd:	8d 65 f4             	lea    -0xc(%ebp),%esp
       return (void*)(p + 1);
@@ -1265,13 +1265,13 @@ malloc(uint nbytes)
  808:	90                   	nop
  809:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
     base.s.ptr = freep = prevp = &base;
- 810:	c7 05 40 0c 00 00 44 	movl   $0xc44,0xc40
+ 810:	c7 05 b8 0c 00 00 bc 	movl   $0xcbc,0xcb8
  817:	0c 00 00 
- 81a:	c7 05 44 0c 00 00 44 	movl   $0xc44,0xc44
+ 81a:	c7 05 bc 0c 00 00 bc 	movl   $0xcbc,0xcbc
  821:	0c 00 00 
     base.s.size = 0;
- 824:	b8 44 0c 00 00       	mov    $0xc44,%eax
- 829:	c7 05 48 0c 00 00 00 	movl   $0x0,0xc48
+ 824:	b8 bc 0c 00 00       	mov    $0xcbc,%eax
+ 829:	c7 05 c0 0c 00 00 00 	movl   $0x0,0xcc0
  830:	00 00 00 
  833:	e9 44 ff ff ff       	jmp    77c <malloc+0x2c>
  838:	90                   	nop

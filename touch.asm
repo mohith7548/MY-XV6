@@ -5,10 +5,10 @@ _touch:     file format elf32-i386
 Disassembly of section .text:
 
 00000000 <main>:
-#include "types.h"
-#include "stat.h"
-#include "user.h"
-#include "fcntl.h"
+//            n += 1;
+//    }
+//    return n;
+//}
 
 int main(int argc, char *argv[]) {
    0:	8d 4c 24 04          	lea    0x4(%esp),%ecx
@@ -34,9 +34,10 @@ int main(int argc, char *argv[]) {
     if(argc > 2) {
   1d:	83 f8 02             	cmp    $0x2,%eax
   20:	75 35                	jne    57 <main+0x57>
-        printf(1, "Need only one argument\n");
-        exit();
-    }
+
+//    int n = findNumberofDelims(argv[1]);
+//    printf(1, "%d", n);
+//    printf(1, "%s", *dirs[1]);
 
     fd = open(argv[1], O_CREATE);
   22:	51                   	push   %ecx
