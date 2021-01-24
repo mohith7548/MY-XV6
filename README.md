@@ -5,7 +5,7 @@ In this project we have took xv6 OS and extended it's features to make it xv6-2.
 ## Introduction
 xv6 is a teaching operating system developed in the summer of 2006 for MIT's  operating systems course. It is a re-implement the popular Unix 6 for multiprocessor x86 systems. Hence called xv ’6’. 
 In this project we focused on extending the features in xv6. We’ve added some new commands and also modified scheduling algorithm.
-The MIT’s xv6 source code can be found here. And this project code here.
+The MIT’s xv6 source code can be found [here](https://github.com/mit-pdos/xv6-public).
 
 ## What we have added
 There were some crucial things missing and we implemented these into xv6
@@ -117,6 +117,8 @@ shutdown
 ```
 ![shutdown](pics/image6.png)
 
-
+# Conclusion
+XV6 is my first ever encounter to an opensource `C` codebase. <br>
+Working on xv6 was quite fun and I learnt a lot of new concepts in OS and how they are implemented.
 
 
